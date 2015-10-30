@@ -1,10 +1,6 @@
 #!/usr/bin/perl -w
-#
-# api_update_dns_record
-#   scripted in 2015 by detain@interserver.net for the MyAdmin API
-#
+# api_update_dns_record - (c)2015 by detain@interserver.net for the MyAdmin API
 # Updates a single DNS record
-#
 # @param sid string the *Session ID* you get from the [api_login](#api_login) call
 # @param domain_id int The ID of the domain in question.
 # @param record_id int The ID of the record to update
@@ -13,9 +9,45 @@
 # @param type string dns record type.
 # @param ttl int dns record time to live, or update time.
 # @param prio int dns record priority
-#
 use SOAP::Lite;
 
+username = argv[1];
+password = argv[2];
+domain_id = argv[3];
+record_id = argv[4];
+name = argv[5];
+content = argv[6];
+type = argv[7];
+ttl = argv[8];
+prio = argv[9];
+show_help = false; 
+if (in_array('--help', $_SERVER['argv']))
+{
+  show_help = true;
+  break;
+} 
+if (argc < 10)
+  show_help = true;
+if (show_help == true)
+  exit(<<<EOF
+api_update_dns_record
+
+Updates a single DNS record
+
+Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <domain_id> <record_id> <name> <content> <type> <ttl> <prio>
+
+  <username>  Your Login name with the site
+  <password>  Your password used to login with the site
+  <domain_id>  Must be a int
+  <record_id>  Must be a int
+  <name>  Must be a string
+  <content>  Must be a string
+  <type>  Must be a string
+  <ttl>  Must be a int
+  <prio>  Must be a int
+
+EOF
+); 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

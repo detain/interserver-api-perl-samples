@@ -1,17 +1,41 @@
 #!/usr/bin/perl -w
-#
-# api_get_prepay_paypal_fill_url
-#   scripted in 2015 by detain@interserver.net for the MyAdmin API
-#
+# api_get_prepay_paypal_fill_url - (c)2015 by detain@interserver.net for the MyAdmin API
 # Gets a PayPal URL to fill a PrePay.
-#
 # @param sid string the *Session ID* you get from the [api_login](#api_login) call
 # @param module string the module the prepay is for. use [get_modules](#get_modules) to get a list of modules
 # @param prepay_id int the ID of the PrePay
 # @param amount float the amount to pay on the prepay.
-#
 use SOAP::Lite;
 
+username = argv[1];
+password = argv[2];
+module = argv[3];
+prepay_id = argv[4];
+amount = argv[5];
+show_help = false; 
+if (in_array('--help', $_SERVER['argv']))
+{
+  show_help = true;
+  break;
+} 
+if (argc < 6)
+  show_help = true;
+if (show_help == true)
+  exit(<<<EOF
+api_get_prepay_paypal_fill_url
+
+Gets a PayPal URL to fill a PrePay.
+
+Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <module> <prepay_id> <amount>
+
+  <username>  Your Login name with the site
+  <password>  Your password used to login with the site
+  <module>  Must be a string
+  <prepay_id>  Must be a int
+  <amount>  Must be a float
+
+EOF
+); 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
