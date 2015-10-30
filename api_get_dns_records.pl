@@ -5,16 +5,16 @@
 # @param domain_id int The ID of the domain in question.
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$domain_id = $ARGV[3];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$domain_id = $ARGV[2];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 4)
+if ($#ARGV < 3)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -36,7 +36,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_get_dns_records($sid, $domain_id);

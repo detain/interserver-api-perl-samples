@@ -10,7 +10,7 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 1)
+if ($#ARGV < 0)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

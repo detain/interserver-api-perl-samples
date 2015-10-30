@@ -6,17 +6,17 @@
 # @param newip string the new ip address to associate with the license
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$id = $ARGV[3];
-$newip = $ARGV[4];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$id = $ARGV[2];
+$newip = $ARGV[3];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 5)
+if ($#ARGV < 4)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -39,7 +39,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_change_license_ip_by_id($sid, $id, $newip);

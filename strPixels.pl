@@ -8,14 +8,14 @@
 # @param string string characters to measure size
 use SOAP::Lite;
 
-ההה$string = $ARGV[1];
+ההה$string = $ARGV[0];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 2)
+if ($#ARGV < 1)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

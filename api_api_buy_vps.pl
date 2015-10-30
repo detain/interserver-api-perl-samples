@@ -16,25 +16,25 @@
 # @param rootpass string Desired Root Password (unused for windows, send a blank string)
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$os = $ARGV[3];
-$slices = $ARGV[4];
-$platform = $ARGV[5];
-$controlpanel = $ARGV[6];
-$period = $ARGV[7];
-$location = $ARGV[8];
-$version = $ARGV[9];
-$hostname = $ARGV[10];
-$coupon = $ARGV[11];
-$rootpass = $ARGV[12];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$os = $ARGV[2];
+$slices = $ARGV[3];
+$platform = $ARGV[4];
+$controlpanel = $ARGV[5];
+$period = $ARGV[6];
+$location = $ARGV[7];
+$version = $ARGV[8];
+$hostname = $ARGV[9];
+$coupon = $ARGV[10];
+$rootpass = $ARGV[11];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 13)
+if ($#ARGV < 12)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -67,7 +67,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_api_buy_vps($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass);

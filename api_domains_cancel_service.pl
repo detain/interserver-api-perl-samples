@@ -7,16 +7,16 @@
 # @param id int the Order ID / Service ID you wish to cancel
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$id = $ARGV[3];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$id = $ARGV[2];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 4)
+if ($#ARGV < 3)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -40,7 +40,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_domains_cancel_service($sid, $id);

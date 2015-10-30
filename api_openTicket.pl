@@ -10,21 +10,21 @@
 # @param box_auth_value string encryption string?
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$user_email = $ARGV[3];
-$user_ip = $ARGV[4];
-$subject = $ARGV[5];
-$product = $ARGV[6];
-$body = $ARGV[7];
-$box_auth_value = $ARGV[8];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$user_email = $ARGV[2];
+$user_ip = $ARGV[3];
+$subject = $ARGV[4];
+$product = $ARGV[5];
+$body = $ARGV[6];
+$box_auth_value = $ARGV[7];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 9)
+if ($#ARGV < 8)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -51,7 +51,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_openTicket($sid, $user_email, $user_ip, $subject, $product, $body, $box_auth_value);

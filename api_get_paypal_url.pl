@@ -5,15 +5,15 @@
 # @param invoice int the invoice id, or a comma seperated list of invoice ids to get a payment url for.  
 use SOAP::Lite;
 
-ההה$module = $ARGV[1];
-$invoice = $ARGV[2];
+ההה$module = $ARGV[0];
+$invoice = $ARGV[1];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 3)
+if ($#ARGV < 2)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

@@ -11,22 +11,22 @@
 # @param prio int dns record priority
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$domain_id = $ARGV[3];
-$record_id = $ARGV[4];
-$name = $ARGV[5];
-$content = $ARGV[6];
-$type = $ARGV[7];
-$ttl = $ARGV[8];
-$prio = $ARGV[9];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$domain_id = $ARGV[2];
+$record_id = $ARGV[3];
+$name = $ARGV[4];
+$content = $ARGV[5];
+$type = $ARGV[6];
+$ttl = $ARGV[7];
+$prio = $ARGV[8];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 10)
+if ($#ARGV < 9)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -54,7 +54,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_update_dns_record($sid, $domain_id, $record_id, $name, $content, $type, $ttl, $prio);

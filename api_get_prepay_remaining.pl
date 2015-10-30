@@ -4,14 +4,14 @@
 # @param module string the module you want to check your prepay amounts on
 use SOAP::Lite;
 
-ההה$module = $ARGV[1];
+ההה$module = $ARGV[0];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 2)
+if ($#ARGV < 1)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

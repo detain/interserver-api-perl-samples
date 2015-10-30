@@ -7,18 +7,18 @@
 # @param amount float the amount to pay on the prepay.
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$module = $ARGV[3];
-$prepay_id = $ARGV[4];
-$amount = $ARGV[5];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$module = $ARGV[2];
+$prepay_id = $ARGV[3];
+$amount = $ARGV[4];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 6)
+if ($#ARGV < 5)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -42,7 +42,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_get_prepay_paypal_fill_url($sid, $module, $prepay_id, $amount);

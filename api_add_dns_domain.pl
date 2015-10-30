@@ -8,17 +8,17 @@
 # @param ip string ip address to assign it to.
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$domain = $ARGV[3];
-$ip = $ARGV[4];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$domain = $ARGV[2];
+$ip = $ARGV[3];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 5)
+if ($#ARGV < 4)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -43,7 +43,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_add_dns_domain($sid, $domain, $ip);

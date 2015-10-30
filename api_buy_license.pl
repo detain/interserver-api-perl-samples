@@ -7,18 +7,18 @@
 # @param coupon string an optional coupon
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$ip = $ARGV[3];
-$type = $ARGV[4];
-$coupon = $ARGV[5];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$ip = $ARGV[2];
+$type = $ARGV[3];
+$coupon = $ARGV[4];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 6)
+if ($#ARGV < 5)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -42,7 +42,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_buy_license($sid, $ip, $type, $coupon);

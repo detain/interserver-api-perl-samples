@@ -6,17 +6,17 @@
 # @param record_id int The ID of the domains record to remove.
 use SOAP::Lite;
 
-ההה$username = $ARGV[1];
-$password = $ARGV[2];
-$domain_id = $ARGV[3];
-$record_id = $ARGV[4];
+ההה$username = $ARGV[0];
+$password = $ARGV[1];
+$domain_id = $ARGV[2];
+$record_id = $ARGV[3];
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;
   {
 } 
-if ($#ARGV < 5)
+if ($#ARGV < 4)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
@@ -39,7 +39,7 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (strlen($sid)  == 0)
+if (length($sid) == 0)
   die "Got A Blank Sessoion";
 $res = $client
   -> api_delete_dns_record($sid, $domain_id, $record_id);
