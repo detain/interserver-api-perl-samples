@@ -7,18 +7,18 @@
 # @param coupon string an optional coupon
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$ip = argv[3];
-$type = argv[4];
-$coupon = argv[5];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$ip = $ARGV[3];
+$type = $ARGV[4];
+$coupon = $ARGV[5];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 6)
+if ($#ARGV < 6)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

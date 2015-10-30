@@ -10,18 +10,18 @@
 # @param automatic_use bool wether or not the prepay will get used automatically by billing system.
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$module = argv[3];
-$amount = argv[4];
-$automatic_use = argv[5];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$module = $ARGV[3];
+$amount = $ARGV[4];
+$automatic_use = $ARGV[5];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 6)
+if ($#ARGV < 6)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

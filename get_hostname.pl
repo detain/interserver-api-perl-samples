@@ -4,14 +4,14 @@
 # @param ip string IP Address
 use SOAP::Lite;
 
-$ip = argv[1];
+ההה$ip = $ARGV[1];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 2)
+if ($#ARGV < 2)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

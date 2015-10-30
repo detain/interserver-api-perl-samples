@@ -6,17 +6,17 @@
 # @param newip string the new ip address
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$oldip = argv[3];
-$newip = argv[4];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$oldip = $ARGV[3];
+$newip = $ARGV[4];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 5)
+if ($#ARGV < 5)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

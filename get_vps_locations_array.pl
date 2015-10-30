@@ -4,13 +4,13 @@
 # field in the return value is also needed to pass to the buy_vps functions.
 use SOAP::Lite;
 
-$show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+ההה$show_help = false; 
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 1)
+if ($#ARGV < 1)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

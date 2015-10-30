@@ -17,26 +17,26 @@
 # @param server int 0 for auto assign otherwise the id of the vps master to put this on
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$os = argv[3];
-$slices = argv[4];
-$platform = argv[5];
-$controlpanel = argv[6];
-$period = argv[7];
-$location = argv[8];
-$version = argv[9];
-$hostname = argv[10];
-$coupon = argv[11];
-$rootpass = argv[12];
-$server = argv[13];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$os = $ARGV[3];
+$slices = $ARGV[4];
+$platform = $ARGV[5];
+$controlpanel = $ARGV[6];
+$period = $ARGV[7];
+$location = $ARGV[8];
+$version = $ARGV[9];
+$hostname = $ARGV[10];
+$coupon = $ARGV[11];
+$rootpass = $ARGV[12];
+$server = $ARGV[13];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 14)
+if ($#ARGV < 14)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

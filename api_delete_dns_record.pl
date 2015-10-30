@@ -6,17 +6,17 @@
 # @param record_id int The ID of the domains record to remove.
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$domain_id = argv[3];
-$record_id = argv[4];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$domain_id = $ARGV[3];
+$record_id = $ARGV[4];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 5)
+if ($#ARGV < 5)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

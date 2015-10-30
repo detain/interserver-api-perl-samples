@@ -5,16 +5,16 @@
 # @param ticketID string the id of the ticket to retrieve. you can use [api_getTicketList](#api_getTicketList) to get a list of your tickets
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$ticketID = argv[3];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$ticketID = $ARGV[3];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 4)
+if ($#ARGV < 4)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

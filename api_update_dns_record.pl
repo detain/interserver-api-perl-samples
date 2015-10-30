@@ -11,22 +11,22 @@
 # @param prio int dns record priority
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$domain_id = argv[3];
-$record_id = argv[4];
-$name = argv[5];
-$content = argv[6];
-$type = argv[7];
-$ttl = argv[8];
-$prio = argv[9];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$domain_id = $ARGV[3];
+$record_id = $ARGV[4];
+$name = $ARGV[5];
+$content = $ARGV[6];
+$type = $ARGV[7];
+$ttl = $ARGV[8];
+$prio = $ARGV[9];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 10)
+if ($#ARGV < 10)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

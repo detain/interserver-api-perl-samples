@@ -6,17 +6,17 @@
 # @param type int Package ID. use [api_get_license_types](#api_get_license_types) to get a list of possible types.
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$ip = argv[3];
-$type = argv[4];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$ip = $ARGV[3];
+$type = $ARGV[4];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 5)
+if ($#ARGV < 5)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

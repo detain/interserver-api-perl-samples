@@ -6,15 +6,15 @@
 # @param password string the password you use to login to the web account, or alternatively the API key.
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 3)
+if ($#ARGV < 3)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

@@ -7,18 +7,18 @@
 # @param status string null for no status limi t or limit to a speicifc status
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$page = argv[3];
-$limit = argv[4];
-$status = argv[5];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$page = $ARGV[3];
+$limit = $ARGV[4];
+$status = $ARGV[5];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 6)
+if ($#ARGV < 6)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

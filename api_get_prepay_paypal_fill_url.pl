@@ -7,18 +7,18 @@
 # @param amount float the amount to pay on the prepay.
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$module = argv[3];
-$prepay_id = argv[4];
-$amount = argv[5];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$module = $ARGV[3];
+$prepay_id = $ARGV[4];
+$amount = $ARGV[5];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 6)
+if ($#ARGV < 6)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

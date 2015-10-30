@@ -7,17 +7,17 @@
 # @param content string the message to add to the ticket
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$ticketID = argv[3];
-$content = argv[4];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$ticketID = $ARGV[3];
+$content = $ARGV[4];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 5)
+if ($#ARGV < 5)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF

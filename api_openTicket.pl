@@ -10,21 +10,21 @@
 # @param box_auth_value string encryption string?
 use SOAP::Lite;
 
-$username = argv[1];
-$password = argv[2];
-$user_email = argv[3];
-$user_ip = argv[4];
-$subject = argv[5];
-$product = argv[6];
-$body = argv[7];
-$box_auth_value = argv[8];
+ההה$username = $ARGV[1];
+$password = $ARGV[2];
+$user_email = $ARGV[3];
+$user_ip = $ARGV[4];
+$subject = $ARGV[5];
+$product = $ARGV[6];
+$body = $ARGV[7];
+$box_auth_value = $ARGV[8];
 $show_help = false; 
-if (in_array('--help', $_SERVER['argv']))
-{
-  $show_help = true;
-  break;
+foreach my $a(@ARGV) {
+  if ($a eq "--help") {
+    $show_help = true;
+  {
 } 
-if (argc < 9)
+if ($#ARGV < 9)
   $show_help = true;
 if ($show_help == true)
   exit(<<<EOF
