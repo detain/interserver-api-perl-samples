@@ -41,7 +41,6 @@ $sid = $client
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-  
 $res = $client
   -> api_make_payment($sid, $module, $invoice);
 print $res;

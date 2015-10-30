@@ -69,7 +69,6 @@ $sid = $client
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-  
 $res = $client
   -> api_api_buy_vps($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass);
 print $res;

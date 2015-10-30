@@ -44,7 +44,6 @@ $sid = $client
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-  
 $res = $client
   -> api_buy_license($sid, $ip, $type, $coupon);
 print $res;

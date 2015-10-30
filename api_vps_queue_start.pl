@@ -38,7 +38,6 @@ $sid = $client
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-  
 $res = $client
   -> api_vps_queue_start($sid, $id);
 print $res;

@@ -56,7 +56,6 @@ $sid = $client
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-  
 $res = $client
   -> api_update_dns_record($sid, $domain_id, $record_id, $name, $content, $type, $ttl, $prio);
 print $res;

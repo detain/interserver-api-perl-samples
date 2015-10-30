@@ -25,7 +25,6 @@ EOF
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
-  
 $res = $client
   -> get_vps_templates($);
 print $res;

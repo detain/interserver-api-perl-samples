@@ -38,7 +38,6 @@ $sid = $client
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-  
 $res = $client
   -> api_get_dns_domain($sid, $domain_id);
 print $res;

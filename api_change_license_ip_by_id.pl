@@ -41,7 +41,6 @@ $sid = $client
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-  
 $res = $client
   -> api_change_license_ip_by_id($sid, $id, $newip);
 print $res;

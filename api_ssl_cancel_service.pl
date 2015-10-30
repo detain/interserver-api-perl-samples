@@ -42,7 +42,6 @@ $sid = $client
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-  
 $res = $client
   -> api_ssl_cancel_service($sid, $id);
 print $res;
