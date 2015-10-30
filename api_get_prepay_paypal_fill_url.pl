@@ -45,5 +45,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_get_prepay_paypal_fill_url($sid, $module, $prepay_id, $amount);
-print $response;
+$res = $client
+  -> api_get_prepay_paypal_fill_url($sid, $module, $prepay_id, $amount);
+print $res;

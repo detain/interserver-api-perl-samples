@@ -38,5 +38,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_webhosting_get_services($sid);
-print $response;
+$res = $client
+  -> api_webhosting_get_services($sid);
+print $res;

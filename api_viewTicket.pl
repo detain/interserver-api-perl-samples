@@ -39,5 +39,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_viewTicket($sid, $ticketID);
-print $response;
+$res = $client
+  -> api_viewTicket($sid, $ticketID);
+print $res;

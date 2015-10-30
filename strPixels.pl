@@ -37,5 +37,6 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->strPixels($string);
-print $response;
+$res = $client
+  -> strPixels($string);
+print $res;

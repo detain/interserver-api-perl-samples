@@ -28,5 +28,6 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->get_locked_ips($);
-print $response;
+$res = $client
+  -> get_locked_ips($);
+print $res;

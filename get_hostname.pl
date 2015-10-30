@@ -29,5 +29,6 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->get_hostname($ip);
-print $response;
+$res = $client
+  -> get_hostname($ip);
+print $res;

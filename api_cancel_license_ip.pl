@@ -42,5 +42,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_cancel_license_ip($sid, $ip, $type);
-print $response;
+$res = $client
+  -> api_cancel_license_ip($sid, $ip, $type);
+print $res;

@@ -34,5 +34,6 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->api_login($username, $password);
-print $response;
+$res = $client
+  -> api_login($username, $password);
+print $res;

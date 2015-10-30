@@ -51,5 +51,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_add_prepay($sid, $module, $amount, $automatic_use);
-print $response;
+$res = $client
+  -> api_add_prepay($sid, $module, $amount, $automatic_use);
+print $res;

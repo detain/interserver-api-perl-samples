@@ -29,5 +29,6 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->api_get_prepay_remaining($module);
-print $response;
+$res = $client
+  -> api_get_prepay_remaining($module);
+print $res;

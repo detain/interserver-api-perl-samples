@@ -54,5 +54,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_openTicket($sid, $user_email, $user_ip, $subject, $product, $body, $box_auth_value);
-print $response;
+$res = $client
+  -> api_openTicket($sid, $user_email, $user_ip, $subject, $product, $body, $box_auth_value);
+print $res;

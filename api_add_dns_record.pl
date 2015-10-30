@@ -54,5 +54,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_add_dns_record($sid, $domain_id, $name, $content, $type, $ttl, $prio);
-print $response;
+$res = $client
+  -> api_add_dns_record($sid, $domain_id, $name, $content, $type, $ttl, $prio);
+print $res;

@@ -43,5 +43,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_vps_cancel_service($sid, $id);
-print $response;
+$res = $client
+  -> api_vps_cancel_service($sid, $id);
+print $res;

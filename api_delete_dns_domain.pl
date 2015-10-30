@@ -39,5 +39,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_delete_dns_domain($sid, $domain_id);
-print $response;
+$res = $client
+  -> api_delete_dns_domain($sid, $domain_id);
+print $res;

@@ -45,5 +45,6 @@ $sid = $client
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
   
-$response = $client->api_getTicketList($sid, $page, $limit, $status);
-print $response;
+$res = $client
+  -> api_getTicketList($sid, $page, $limit, $status);
+print $res;
