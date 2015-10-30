@@ -6,19 +6,19 @@
 # @param invoice int the invoice id you want to make a payment on
 use SOAP::Lite;
 
-username = argv[1];
-password = argv[2];
-module = argv[3];
-invoice = argv[4];
-show_help = false; 
+$username = argv[1];
+$password = argv[2];
+$module = argv[3];
+$invoice = argv[4];
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 5)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 api_make_payment
 
@@ -37,11 +37,10 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login(argv[1], argv[2])
+  -> api_login($username, $password)
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-echo "Got Session ID "+$sid+"\n";
   
-$response = $client->api_make_payment();
+$response = $client->api_make_payment($sid, $module, $invoice);
 print $response;

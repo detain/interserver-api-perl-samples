@@ -3,15 +3,15 @@
 # Returns a list of all the modules available.
 use SOAP::Lite;
 
-show_help = false; 
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 1)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 get_modules
 
@@ -26,5 +26,5 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->get_modules();
+$response = $client->get_modules($);
 print $response;

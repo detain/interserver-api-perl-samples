@@ -16,27 +16,27 @@
 # @param rootpass string Desired Root Password (unused for windows, send a blank string)
 use SOAP::Lite;
 
-username = argv[1];
-password = argv[2];
-os = argv[3];
-slices = argv[4];
-platform = argv[5];
-controlpanel = argv[6];
-period = argv[7];
-location = argv[8];
-version = argv[9];
-hostname = argv[10];
-coupon = argv[11];
-rootpass = argv[12];
-show_help = false; 
+$username = argv[1];
+$password = argv[2];
+$os = argv[3];
+$slices = argv[4];
+$platform = argv[5];
+$controlpanel = argv[6];
+$period = argv[7];
+$location = argv[8];
+$version = argv[9];
+$hostname = argv[10];
+$coupon = argv[11];
+$rootpass = argv[12];
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 13)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 api_api_validate_buy_vps
 
@@ -65,11 +65,10 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login(argv[1], argv[2])
+  -> api_login($username, $password)
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-echo "Got Session ID "+$sid+"\n";
   
-$response = $client->api_api_validate_buy_vps();
+$response = $client->api_api_validate_buy_vps($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass);
 print $response;

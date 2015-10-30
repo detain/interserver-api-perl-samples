@@ -4,16 +4,16 @@
 # @param ip string IP Address
 use SOAP::Lite;
 
-ip = argv[1];
-show_help = false; 
+$ip = argv[1];
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 2)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 get_hostname
 
@@ -29,5 +29,5 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->get_hostname();
+$response = $client->get_hostname($ip);
 print $response;

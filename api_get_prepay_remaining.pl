@@ -4,16 +4,16 @@
 # @param module string the module you want to check your prepay amounts on
 use SOAP::Lite;
 
-module = argv[1];
-show_help = false; 
+$module = argv[1];
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 2)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 api_get_prepay_remaining
 
@@ -29,5 +29,5 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->api_get_prepay_remaining();
+$response = $client->api_get_prepay_remaining($module);
 print $response;

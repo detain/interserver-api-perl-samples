@@ -7,20 +7,20 @@
 # @param amount float the amount to pay on the prepay.
 use SOAP::Lite;
 
-username = argv[1];
-password = argv[2];
-module = argv[3];
-prepay_id = argv[4];
-amount = argv[5];
-show_help = false; 
+$username = argv[1];
+$password = argv[2];
+$module = argv[3];
+$prepay_id = argv[4];
+$amount = argv[5];
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 6)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 api_get_prepay_paypal_fill_url
 
@@ -40,11 +40,10 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login(argv[1], argv[2])
+  -> api_login($username, $password)
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-echo "Got Session ID "+$sid+"\n";
   
-$response = $client->api_get_prepay_paypal_fill_url();
+$response = $client->api_get_prepay_paypal_fill_url($sid, $module, $prepay_id, $amount);
 print $response;

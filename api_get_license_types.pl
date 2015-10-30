@@ -3,15 +3,15 @@
 # Get a license of the various license types.
 use SOAP::Lite;
 
-show_help = false; 
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 1)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 api_get_license_types
 
@@ -26,5 +26,5 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->api_get_license_types();
+$response = $client->api_get_license_types($);
 print $response;

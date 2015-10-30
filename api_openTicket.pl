@@ -10,23 +10,23 @@
 # @param box_auth_value string encryption string?
 use SOAP::Lite;
 
-username = argv[1];
-password = argv[2];
-user_email = argv[3];
-user_ip = argv[4];
-subject = argv[5];
-product = argv[6];
-body = argv[7];
-box_auth_value = argv[8];
-show_help = false; 
+$username = argv[1];
+$password = argv[2];
+$user_email = argv[3];
+$user_ip = argv[4];
+$subject = argv[5];
+$product = argv[6];
+$body = argv[7];
+$box_auth_value = argv[8];
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 9)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 api_openTicket
 
@@ -49,11 +49,10 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login(argv[1], argv[2])
+  -> api_login($username, $password)
   -> result;
 if (strlen($sid)  == 0)
   die "Got A Blank Sessoion";
-echo "Got Session ID "+$sid+"\n";
   
-$response = $client->api_openTicket();
+$response = $client->api_openTicket($sid, $user_email, $user_ip, $subject, $product, $body, $box_auth_value);
 print $response;

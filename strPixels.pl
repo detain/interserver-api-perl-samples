@@ -8,16 +8,16 @@
 # @param string string characters to measure size
 use SOAP::Lite;
 
-string = argv[1];
-show_help = false; 
+$string = argv[1];
+$show_help = false; 
 if (in_array('--help', $_SERVER['argv']))
 {
-  show_help = true;
+  $show_help = true;
   break;
 } 
 if (argc < 2)
-  show_help = true;
-if (show_help == true)
+  $show_help = true;
+if ($show_help == true)
   exit(<<<EOF
 strPixels
 
@@ -37,5 +37,5 @@ $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
   
-$response = $client->strPixels();
+$response = $client->strPixels($string);
 print $response;
