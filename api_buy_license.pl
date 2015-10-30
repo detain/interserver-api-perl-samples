@@ -40,10 +40,12 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <ip> <type> <coupon
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
-$sid = $client
+$login_res = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)  {
+die $login_res->faultstring if ($login_res->fault);
+print $login_res->result, "\n";
+if (length($login_res->result) == 0)  {
   die "Got A Blank Sessoion";
 } 
 $res = $client
