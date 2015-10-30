@@ -12,8 +12,8 @@
 use SOAP::Lite;
 
 $client = SOAP::Lite
-	-> uri('urn:myapi')
-	-> proxy('https://my.interserver.net/api.php?wsdl');
-	
+  -> uri('urn:myapi')
+  -> proxy('https://my.interserver.net/api.php?wsdl');
+  
 $response = $client->api_login();
 print $response;

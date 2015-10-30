@@ -12,14 +12,14 @@
 use SOAP::Lite;
 
 $client = SOAP::Lite
-	-> uri('urn:myapi')
-	-> proxy('https://my.interserver.net/api.php?wsdl');
+  -> uri('urn:myapi')
+  -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-	-> api_login(argv[1], argv[2])
-	-> result;
+  -> api_login(argv[1], argv[2])
+  -> result;
 if (strlen($sid)  == 0)
-	die "Got A Blank Sessoion";
+  die "Got A Blank Sessoion";
 echo "Got Session ID "+$sid+"\n";
-	
+  
 $response = $client->api_vps_get_client_unpaid_invoices();
 print $response;

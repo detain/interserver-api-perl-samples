@@ -10,8 +10,8 @@
 use SOAP::Lite;
 
 $client = SOAP::Lite
-	-> uri('urn:myapi')
-	-> proxy('https://my.interserver.net/api.php?wsdl');
-	
+  -> uri('urn:myapi')
+  -> proxy('https://my.interserver.net/api.php?wsdl');
+  
 $response = $client->get_vps_locations_array();
 print $response;
