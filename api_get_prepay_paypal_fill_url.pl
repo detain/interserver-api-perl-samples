@@ -43,8 +43,6 @@ $client = SOAP::Lite
 $sid = $client
   -> api_login($username, $password)
   -> result;
-die $sid->faultstring if ($sid->fault);
-print $sid->result, "\n";
 if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
 } 
