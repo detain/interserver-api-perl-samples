@@ -36,4 +36,5 @@ $client = SOAP::Lite
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $res = $client
   -> api_login($username, $password);
-print $res;
+die $res->faultstring if ($res->fault);
+print "Response:\n",$res,"\n";

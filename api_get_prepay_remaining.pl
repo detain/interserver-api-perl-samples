@@ -31,4 +31,5 @@ $client = SOAP::Lite
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $res = $client
   -> api_get_prepay_remaining($module);
-print $res;
+die $res->faultstring if ($res->fault);
+print "Response:\n",$res,"\n";

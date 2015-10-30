@@ -28,4 +28,5 @@ $client = SOAP::Lite
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $res = $client
   -> get_vps_templates($);
-print $res;
+die $res->faultstring if ($res->fault);
+print "Response:\n",$res,"\n";

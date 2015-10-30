@@ -28,4 +28,5 @@ $client = SOAP::Lite
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $res = $client
   -> api_get_license_types($);
-print $res;
+die $res->faultstring if ($res->fault);
+print "Response:\n",$res,"\n";

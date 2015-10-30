@@ -49,14 +49,15 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <user_email> <user_
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
-$login_res = $client
+$sid = $client
   -> api_login($username, $password)
   -> result;
-die $login_res->faultstring if ($login_res->fault);
-print $login_res->result, "\n";
-if (length($login_res->result) == 0)  {
+die $sid->faultstring if ($sid->fault);
+print $sid->result, "\n";
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
 } 
 $res = $client
   -> api_openTicket($sid, $user_email, $user_ip, $subject, $product, $body, $box_auth_value);
-print $res;
+die $res->faultstring if ($res->fault);
+print "Response:\n",$res,"\n";

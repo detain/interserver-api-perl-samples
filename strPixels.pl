@@ -39,4 +39,5 @@ $client = SOAP::Lite
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $res = $client
   -> strPixels($string);
-print $res;
+die $res->faultstring if ($res->fault);
+print "Response:\n",$res,"\n";
