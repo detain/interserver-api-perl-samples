@@ -74,4 +74,4 @@ if (length($sid) == 0)  {
 $res = $client
   -> api_api_buy_vps($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

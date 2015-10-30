@@ -42,4 +42,4 @@ if (length($sid) == 0)  {
 $res = $client
   -> api_backups_get_services($sid);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

@@ -61,4 +61,4 @@ if (length($sid) == 0)  {
 $res = $client
   -> api_update_dns_record($sid, $domain_id, $record_id, $name, $content, $type, $ttl, $prio);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

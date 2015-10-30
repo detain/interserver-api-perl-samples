@@ -32,4 +32,4 @@ $client = SOAP::Lite
 $res = $client
   -> api_get_prepay_remaining($module);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

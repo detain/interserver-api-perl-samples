@@ -43,4 +43,4 @@ if (length($sid) == 0)  {
 $res = $client
   -> api_delete_dns_domain($sid, $domain_id);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

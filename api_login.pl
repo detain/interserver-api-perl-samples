@@ -37,4 +37,4 @@ $client = SOAP::Lite
 $res = $client
   -> api_login($username, $password);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

@@ -58,4 +58,4 @@ if (length($sid) == 0)  {
 $res = $client
   -> api_openTicket($sid, $user_email, $user_ip, $subject, $product, $body, $box_auth_value);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

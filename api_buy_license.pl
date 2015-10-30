@@ -49,4 +49,4 @@ if (length($sid) == 0)  {
 $res = $client
   -> api_buy_license($sid, $ip, $type, $coupon);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

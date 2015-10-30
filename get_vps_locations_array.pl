@@ -31,4 +31,4 @@ $client = SOAP::Lite
 $res = $client
   -> get_vps_locations_array($);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

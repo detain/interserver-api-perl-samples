@@ -43,4 +43,4 @@ if (length($sid) == 0)  {
 $res = $client
   -> api_vps_get_server_name($sid, $id);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

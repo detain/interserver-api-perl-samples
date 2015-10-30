@@ -50,4 +50,4 @@ if (length($sid) == 0)  {
 $res = $client
   -> api_add_dns_domain($sid, $domain, $ip);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";

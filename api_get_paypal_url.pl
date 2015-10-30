@@ -35,4 +35,4 @@ $client = SOAP::Lite
 $res = $client
   -> api_get_paypal_url($module, $invoice);
 die $res->faultstring if ($res->fault);
-print "Response:\n",$res,"\n";
+print "Response:\n",$res->result,"\n";
