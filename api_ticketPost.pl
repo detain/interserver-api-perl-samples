@@ -17,10 +17,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 4)
+if ($#ARGV < 4)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_ticketPost
 
 This commands adds the content parameter as a response/reply to an existing
@@ -33,16 +34,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <ticketID> <content
   <ticketID>  Must be a string
   <content>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_ticketPost($sid, $ticketID, $content);
 print $res;

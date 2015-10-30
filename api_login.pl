@@ -14,10 +14,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 2)
+if ($#ARGV < 2)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_login
 
 This function creates a session in our system which you will need to pass to
@@ -28,8 +29,8 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password>
   <username>  Must be a string
   <password>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

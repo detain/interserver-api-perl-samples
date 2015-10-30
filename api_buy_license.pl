@@ -18,10 +18,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 5)
+if ($#ARGV < 5)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_buy_license
 
 Purchase a License.  Returns an invoice ID.
@@ -34,16 +35,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <ip> <type> <coupon
   <type>  Must be a int
   <coupon>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_buy_license($sid, $ip, $type, $coupon);
 print $res;

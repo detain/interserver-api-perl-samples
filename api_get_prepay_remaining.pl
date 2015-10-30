@@ -11,10 +11,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 1)
+if ($#ARGV < 1)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_get_prepay_remaining
 
 Get the PrePay amount available for a given module.
@@ -23,8 +24,8 @@ Correct Syntax: {$_SERVER["argv"][0]}  <module>
 
   <module>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

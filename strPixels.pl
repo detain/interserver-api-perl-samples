@@ -15,10 +15,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 1)
+if ($#ARGV < 1)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 strPixels
 
 This function uses the array below to calculate the pixel width of a string of
@@ -31,8 +32,8 @@ Correct Syntax: {$_SERVER["argv"][0]}  <string>
 
   <string>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

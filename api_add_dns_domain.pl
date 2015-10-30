@@ -18,10 +18,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 4)
+if ($#ARGV < 4)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_add_dns_domain
 
 Adds a new domain into our system.  The status will be "ok" if it added, or
@@ -35,16 +36,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <domain> <ip>
   <domain>  Must be a string
   <ip>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_add_dns_domain($sid, $domain, $ip);
 print $res;

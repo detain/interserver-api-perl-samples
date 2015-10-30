@@ -34,10 +34,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 12)
+if ($#ARGV < 12)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_api_validate_buy_vps
 
 Checks if the parameters for your order pass validation and let you know if
@@ -59,16 +60,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <os> <slices> <plat
   <coupon>  Must be a string
   <rootpass>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_api_validate_buy_vps($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass);
 print $res;

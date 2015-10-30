@@ -26,10 +26,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 9)
+if ($#ARGV < 9)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_update_dns_record
 
 Updates a single DNS record
@@ -46,16 +47,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <domain_id> <record
   <ttl>  Must be a int
   <prio>  Must be a int
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_update_dns_record($sid, $domain_id, $record_id, $name, $content, $type, $ttl, $prio);
 print $res;

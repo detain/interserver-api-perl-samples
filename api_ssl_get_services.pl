@@ -13,10 +13,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 2)
+if ($#ARGV < 2)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_ssl_get_services
 
 This Function Applies to the SSL Certificates services.
@@ -27,16 +28,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password>
   <username>  Your Login name with the site
   <password>  Your password used to login with the site
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_ssl_get_services($sid);
 print $res;

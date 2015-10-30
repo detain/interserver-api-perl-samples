@@ -13,10 +13,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 2)
+if ($#ARGV < 2)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_get_paypal_url
 
 Get the PayPal payment URL for an invoice on a given module.
@@ -26,8 +27,8 @@ Correct Syntax: {$_SERVER["argv"][0]}  <module> <invoice>
   <module>  Must be a string
   <invoice>  Must be a int
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

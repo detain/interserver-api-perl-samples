@@ -10,10 +10,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 0)
+if ($#ARGV < 0)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 get_locked_ips
 
 This will return a list of all IP addresses used for fraud.   Its probably of no
@@ -22,8 +23,8 @@ This will return a list of all IP addresses used for fraud.   Its probably of no
 Correct Syntax: {$_SERVER["argv"][0]} 
 
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

@@ -18,10 +18,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 5)
+if ($#ARGV < 5)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_get_prepay_paypal_fill_url
 
 Gets a PayPal URL to fill a PrePay.
@@ -34,16 +35,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <module> <prepay_id
   <prepay_id>  Must be a int
   <amount>  Must be a float
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_get_prepay_paypal_fill_url($sid, $module, $prepay_id, $amount);
 print $res;

@@ -9,10 +9,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 0)
+if ($#ARGV < 0)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 get_vps_templates
 
 Get the currently available VPS templates for each server type.
@@ -20,8 +21,8 @@ Get the currently available VPS templates for each server type.
 Correct Syntax: {$_SERVER["argv"][0]} 
 
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

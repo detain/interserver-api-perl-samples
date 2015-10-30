@@ -24,10 +24,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 8)
+if ($#ARGV < 8)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_add_dns_record
 
 Adds a single DNS record
@@ -43,16 +44,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <domain_id> <name> 
   <ttl>  Must be a int
   <prio>  Must be a int
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_add_dns_record($sid, $domain_id, $name, $content, $type, $ttl, $prio);
 print $res;

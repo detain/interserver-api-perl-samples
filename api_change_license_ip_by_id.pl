@@ -16,10 +16,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 4)
+if ($#ARGV < 4)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_change_license_ip_by_id
 
 Change the IP on an active license.
@@ -31,16 +32,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <id> <newip>
   <id>  Must be a int
   <newip>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_change_license_ip_by_id($sid, $id, $newip);
 print $res;

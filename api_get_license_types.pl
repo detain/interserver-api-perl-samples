@@ -9,10 +9,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 0)
+if ($#ARGV < 0)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_get_license_types
 
 Get a license of the various license types.
@@ -20,8 +21,8 @@ Get a license of the various license types.
 Correct Syntax: {$_SERVER["argv"][0]} 
 
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

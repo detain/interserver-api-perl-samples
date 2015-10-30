@@ -11,10 +11,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 1)
+if ($#ARGV < 1)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 get_hostname
 
 Resolves an IP Address and returns the hostname it points to.
@@ -23,8 +24,8 @@ Correct Syntax: {$_SERVER["argv"][0]}  <ip>
 
   <ip>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');

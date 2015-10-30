@@ -18,10 +18,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 5)
+if ($#ARGV < 5)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 api_getTicketList
 
 Returns a list of any tickets in the system.
@@ -34,16 +35,17 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <page> <limit> <sta
   <limit>  Must be a int
   <status>  Must be a string
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
   -> api_login($username, $password)
   -> result;
-if (length($sid) == 0)
+if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
+} 
 $res = $client
   -> api_getTicketList($sid, $page, $limit, $status);
 print $res;

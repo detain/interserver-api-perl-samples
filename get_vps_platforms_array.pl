@@ -11,10 +11,11 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 0)
+if ($#ARGV < 0)  {
   $show_help = true;
-if ($show_help == true)
-  exit(<<<EOF
+}
+if ($show_help == true) { 
+  die '
 get_vps_platforms_array
 
 Use this function to get a list of the various platforms available for ordering.
@@ -24,8 +25,8 @@ Use this function to get a list of the various platforms available for ordering.
 Correct Syntax: {$_SERVER["argv"][0]} 
 
 
-EOF
-); 
+'; 
+} 
 $client = SOAP::Lite
   -> uri('urn:myapi')
   -> proxy('https://my.interserver.net/api.php?wsdl');
