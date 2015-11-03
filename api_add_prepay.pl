@@ -7,7 +7,7 @@
 # @param sid string the *Session ID* you get from the [api_login](#api_login) call
 # @param module string the module the prepay is for. use [get_modules](#get_modules) to get a list of modules
 # @param amount float the dollar amount of prepay total
-# @param automatic_use xsd:boolean wether or not the prepay will get used automatically by billing system.
+# @param automatic_use bool wether or not the prepay will get used automatically by billing system.
 use SOAP::Lite;
 
 ההה$username = $ARGV[0];
@@ -39,7 +39,7 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <module> <amount> <
   <password>  Your password used to login with the site
   <module>  Must be a string
   <amount>  Must be a float
-  <automatic_use>  Must be a xsd:boolean
+  <automatic_use>  Must be a bool
 
 '; 
 } 
