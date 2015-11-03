@@ -2,7 +2,7 @@
 # api_get_prepay_list - (c)2015 by detain@interserver.net for the MyAdmin API
 # Gets a list of your current prepays added into the system and how much is left
 # on each one.
-# @param sid string the *Session ID* you get from the [api_login](#api_login) call
+# @param sid string the *Session ID* you get from the [login](#login) call
 use SOAP::Lite;
 
 ההה$username = $ARGV[0];

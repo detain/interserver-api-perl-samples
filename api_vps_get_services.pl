@@ -2,7 +2,7 @@
 # api_vps_get_services - (c)2015 by detain@interserver.net for the MyAdmin API
 # This Function Applies to the VPS services.
 # Gets List of Services
-# @param sid string the *Session ID* you get from the [api_login](#api_login) call
+# @param sid string the *Session ID* you get from the [login](#login) call
 use SOAP::Lite;
 
 ההה$username = $ARGV[0];

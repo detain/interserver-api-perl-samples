@@ -2,7 +2,7 @@
 # api_ssl_get_client_invoices - (c)2015 by detain@interserver.net for the MyAdmin API
 # This Function Applies to the SSL Certificates services.
 # Gets a list of all the invoices.
-# @param sid string the *Session ID* you get from the [api_login](#api_login) call
+# @param sid string the *Session ID* you get from the [login](#login) call
 use SOAP::Lite;
 
 ההה$username = $ARGV[0];

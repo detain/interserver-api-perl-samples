@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 # api_cancel_license_ip - (c)2015 by detain@interserver.net for the MyAdmin API
 # Cancel a License by IP and Type.
-# @param sid string the *Session ID* you get from the [api_login](#api_login) call
+# @param sid string the *Session ID* you get from the [login](#login) call
 # @param ip string IP Address to cancel
 # @param type int Package ID. use [get_license_types](#get-license-types) to get a list of possible types.
 use SOAP::Lite;
