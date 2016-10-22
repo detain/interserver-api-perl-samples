@@ -10,6 +10,7 @@ use SOAP::Lite;
 $password = $ARGV[1];
 $oldip = $ARGV[2];
 $newip = $ARGV[3];
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

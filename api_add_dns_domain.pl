@@ -12,6 +12,7 @@ use SOAP::Lite;
 $password = $ARGV[1];
 $domain = $ARGV[2];
 $ip = $ARGV[3];
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

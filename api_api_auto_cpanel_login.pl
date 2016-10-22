@@ -1,10 +1,10 @@
 #!/usr/bin/perl -w
-# api_backups_get_service - (c)2015 by detain@interserver.net for the MyAdmin API
-# This Function Applies to the Backup Services services.
-# Gets service info for the given ID in the given Module.   An example of this
-# would be in the "vps" module have order id
+# api_api_auto_cpanel_login - (c)2015 by detain@interserver.net for the MyAdmin API
+# Logs into cpanel for the given website id and returns a unique logged-in url. 
+# The status will be "ok" if successful, or "error" if there was any problems
+# status_text will contain a description of the problem if any.
 # @param sid string the *Session ID* you get from the [login](#login) call
-# @param id int service id, such as VPS ID
+# @param id int id of website
 use SOAP::Lite;
 
 ההה$username = $ARGV[0];
@@ -22,11 +22,11 @@ if ($#ARGV < 3)  {
 }
 if ($show_help == true) { 
   die '
-api_backups_get_service
+api_api_auto_cpanel_login
 
-This Function Applies to the Backup Services services.
-# Gets service info for the given ID in the given Module.   An example of this
-# would be in the "vps" module have order id
+Logs into cpanel for the given website id and returns a unique logged-in url. 
+# The status will be "ok" if successful, or "error" if there was any problems
+# status_text will contain a description of the problem if any.
 
 Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <id>
 
@@ -46,6 +46,6 @@ if (length($sid) == 0)  {
   die "Got A Blank Sessoion";
 } 
 $res = $client
-  -> api_backups_get_service($sid, $id);
+  -> api_api_auto_cpanel_login($sid, $id);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";

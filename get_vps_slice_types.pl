@@ -5,7 +5,8 @@
 # this function
 use SOAP::Lite;
 
-ההה$show_help = false; 
+ההה
+$show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
     $show_help = true;

@@ -2,7 +2,7 @@
 # api_vps_get_service - (c)2015 by detain@interserver.net for the MyAdmin API
 # This Function Applies to the VPS services.
 # Gets service info for the given ID in the given Module.   An example of this
-# would be in the "vps" modulei have order id
+# would be in the "vps" module have order id
 # @param sid string the *Session ID* you get from the [login](#login) call
 # @param id int service id, such as VPS ID
 use SOAP::Lite;
@@ -10,6 +10,7 @@ use SOAP::Lite;
 ההה$username = $ARGV[0];
 $password = $ARGV[1];
 $id = $ARGV[2];
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
@@ -25,7 +26,7 @@ api_vps_get_service
 
 This Function Applies to the VPS services.
 # Gets service info for the given ID in the given Module.   An example of this
-# would be in the "vps" modulei have order id
+# would be in the "vps" module have order id
 
 Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <id>
 

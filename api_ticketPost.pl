@@ -11,6 +11,7 @@ use SOAP::Lite;
 $password = $ARGV[1];
 $ticketID = $ARGV[2];
 $content = $ARGV[3];
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

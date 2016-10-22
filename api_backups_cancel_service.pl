@@ -4,12 +4,13 @@
 # Cancels a service for the passed module matching the passed id.  Canceling a
 # service will also cancel any addons for that service at the same time.
 # @param sid string the *Session ID* you get from the [login](#login) call
-# @param id int the Order ID / Service ID you wish to cancel
+# @param id int ID / Service ID you wish to cancel
 use SOAP::Lite;
 
 ההה$username = $ARGV[0];
 $password = $ARGV[1];
 $id = $ARGV[2];
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

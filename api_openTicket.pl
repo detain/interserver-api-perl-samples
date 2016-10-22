@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 # api_openTicket - (c)2015 by detain@interserver.net for the MyAdmin API
-# This command creates a new ticket in our system.  
+# This command creates a new ticket in our system.
 # @param sid string the *Session ID* you get from the [login](#login) call
 # @param user_email string client email address
 # @param user_ip string client ip address
@@ -18,6 +18,7 @@ $subject = $ARGV[4];
 $product = $ARGV[5];
 $body = $ARGV[6];
 $box_auth_value = $ARGV[7];
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
@@ -31,7 +32,7 @@ if ($show_help == true) {
   die '
 api_openTicket
 
-This command creates a new ticket in our system.  
+This command creates a new ticket in our system.
 
 Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <user_email> <user_ip> <subject> <product> <body> <box_auth_value>
 

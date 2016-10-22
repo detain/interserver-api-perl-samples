@@ -2,14 +2,15 @@
 # api_change_license_ip_by_id - (c)2015 by detain@interserver.net for the MyAdmin API
 # Change the IP on an active license.
 # @param sid string the *Session ID* you get from the [login](#login) call
-# @param id int the license order id of the license to change the ip for
-# @param newip string the new ip address to associate with the license
+# @param id int the old ip address
+# @param newip string the new ip address
 use SOAP::Lite;
 
 ההה$username = $ARGV[0];
 $password = $ARGV[1];
 $id = $ARGV[2];
 $newip = $ARGV[3];
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
