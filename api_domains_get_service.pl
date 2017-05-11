@@ -4,7 +4,7 @@
 # Gets service info for the given ID in the given Module.   An example of this
 # would be in the "vps" module have order id
 # @param sid string the *Session ID* you get from the [login](#login) call
-# @param id int service id, such as VPS ID
+# @param id int 
 use SOAP::Lite;
 
 ההה$username = $ARGV[0];
