@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_buy_license_prepay - (c)2015 by detain@interserver.net for the MyAdmin API
 # Purchase a License and optionally uses PrePay.  Will return an error if
 # use_prepay is true not enough PrePay funds are available.
@@ -9,7 +9,7 @@
 # @param use_prepay bool optional, whether or not to use a prepay, if specified as true will return an error if not enough prepay
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $ip = $ARGV[2];
 $type = $ARGV[3];
@@ -50,7 +50,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_buy_license_prepay($sid, $ip, $type, $coupon, $use_prepay);

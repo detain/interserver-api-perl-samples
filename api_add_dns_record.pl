@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_add_dns_record - (c)2015 by detain@interserver.net for the MyAdmin API
 # Adds a single DNS record
 # @param sid string the *Session ID* you get from the [login](#login) call
@@ -10,7 +10,7 @@
 # @param prio int dns record priority
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $domain_id = $ARGV[2];
 $name = $ARGV[3];
@@ -54,7 +54,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_add_dns_record($sid, $domain_id, $name, $content, $type, $ttl, $prio);

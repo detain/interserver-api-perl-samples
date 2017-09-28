@@ -1,9 +1,9 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # get_modules - (c)2015 by detain@interserver.net for the MyAdmin API
 # Returns a list of all the modules available.
 use SOAP::Lite;
 
-ההה
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

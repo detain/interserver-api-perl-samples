@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_api_buy_vps - (c)2015 by detain@interserver.net for the MyAdmin API
 # Places a VPS order in our system. These are the same parameters as
 # api_validate_buy_vps..   Returns a comma seperated list of invoices if any need
@@ -16,7 +16,7 @@
 # @param rootpass string Desired Root Password (unused for windows, send a blank string)
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $os = $ARGV[2];
 $slices = $ARGV[3];
@@ -70,7 +70,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_api_buy_vps($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass);

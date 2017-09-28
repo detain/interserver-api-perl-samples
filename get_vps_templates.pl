@@ -1,9 +1,9 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # get_vps_templates - (c)2015 by detain@interserver.net for the MyAdmin API
 # Get the currently available VPS templates for each server type.
 use SOAP::Lite;
 
-ההה
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

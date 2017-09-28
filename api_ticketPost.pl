@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_ticketPost - (c)2015 by detain@interserver.net for the MyAdmin API
 # This commands adds the content parameter as a response/reply to an existing
 # ticket specified by ticketID.
@@ -7,7 +7,7 @@
 # @param content string the message to add to the ticket
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $ticketID = $ARGV[2];
 $content = $ARGV[3];
@@ -44,7 +44,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_ticketPost($sid, $ticketID, $content);

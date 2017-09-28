@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_add_prepay - (c)2015 by detain@interserver.net for the MyAdmin API
 # Adds a PrePay into the system under the given module.    PrePays are a credit on
 # your account by prefilling  your account with funds.   These are stored in a
@@ -10,7 +10,7 @@
 # @param automatic_use bool whether or not the prepay will get used automatically by billing system.
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $module = $ARGV[2];
 $amount = $ARGV[3];
@@ -51,7 +51,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_add_prepay($sid, $module, $amount, $automatic_use);

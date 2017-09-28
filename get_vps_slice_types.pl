@@ -1,11 +1,11 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # get_vps_slice_types - (c)2015 by detain@interserver.net for the MyAdmin API
 # We have several types of Servers available for use with VPS Hosting. You can get
 # a list of the types available and  there cost per slice/unit by making a call to
 # this function
 use SOAP::Lite;
 
-ההה
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

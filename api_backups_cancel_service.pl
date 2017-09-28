@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_backups_cancel_service - (c)2015 by detain@interserver.net for the MyAdmin API
 # This Function Applies to the Backup Services services.
 # Cancels a service for the passed module matching the passed id.  Canceling a
@@ -7,7 +7,7 @@
 # @param id int ID / Service ID you wish to cancel
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $id = $ARGV[2];
 
@@ -43,7 +43,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_backups_cancel_service($sid, $id);

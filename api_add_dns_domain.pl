@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_add_dns_domain - (c)2015 by detain@interserver.net for the MyAdmin API
 # Adds a new domain into our system.  The status will be "ok" if it added, or
 # "error" if there was any problems status_text will contain a description of the
@@ -8,7 +8,7 @@
 # @param ip string ip address to assign it to.
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $domain = $ARGV[2];
 $ip = $ARGV[3];
@@ -46,7 +46,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_add_dns_domain($sid, $domain, $ip);

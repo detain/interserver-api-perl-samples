@@ -1,9 +1,9 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_get_license_types - (c)2015 by detain@interserver.net for the MyAdmin API
 # Get a license of the various license types.
 use SOAP::Lite;
 
-ההה
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

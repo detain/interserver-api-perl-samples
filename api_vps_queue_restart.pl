@@ -1,11 +1,11 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_vps_queue_restart - (c)2015 by detain@interserver.net for the MyAdmin API
 # restart a vps
 # @param sid string the *Session ID* you get from the [login](#login) call
 # @param id int defaults to false, if specified tries using that id instead of the one passed
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $id = $ARGV[2];
 
@@ -39,7 +39,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_vps_queue_restart($sid, $id);

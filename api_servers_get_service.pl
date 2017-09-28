@@ -1,13 +1,15 @@
 a#!/usr/bin/perl -w
-# api_backups_get_client_unpaid_invoices - (c)2015 by detain@interserver.net for the MyAdmin API
-# This Function Applies to the Backup Services services.
-# This function returns a list of all the unpaid invoices matching the module
-# passed..
+# api_servers_get_service - (c)2015 by detain@interserver.net for the MyAdmin API
+# This Function Applies to the Dedicated Servers services.
+# Gets service info for the given ID in the given Module.   An example of this
+# would be in the "vps" module have order id
 # @param sid string the *Session ID* you get from the [login](#login) call
+# @param id int 
 use SOAP::Lite;
 
 $username = $ARGV[0];
 $password = $ARGV[1];
+$id = $ARGV[2];
 
 $show_help = false; 
 foreach my $a(@ARGV) {
@@ -15,21 +17,22 @@ foreach my $a(@ARGV) {
     $show_help = true;
   {
 } 
-if ($#ARGV < 2)  {
+if ($#ARGV < 3)  {
   $show_help = true;
 }
 if ($show_help == true) { 
   die '
-api_backups_get_client_unpaid_invoices
+api_servers_get_service
 
-This Function Applies to the Backup Services services.
-# This function returns a list of all the unpaid invoices matching the module
-# passed..
+This Function Applies to the Dedicated Servers services.
+# Gets service info for the given ID in the given Module.   An example of this
+# would be in the "vps" module have order id
 
-Correct Syntax: {$_SERVER["argv"][0]}  <username> <password>
+Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <id>
 
   <username>  Your Login name with the site
   <password>  Your password used to login with the site
+  <id>  Must be a int
 
 '; 
 } 
@@ -43,6 +46,6 @@ if (length($sid) == 0)  {
   die "Got A Blank Session";
 } 
 $res = $client
-  -> api_backups_get_client_unpaid_invoices($sid);
+  -> api_servers_get_service($sid, $id);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";

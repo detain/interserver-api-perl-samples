@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_api_auto_cpanel_login - (c)2015 by detain@interserver.net for the MyAdmin API
 # Logs into cpanel for the given website id and returns a unique logged-in url. 
 # The status will be "ok" if successful, or "error" if there was any problems
@@ -7,7 +7,7 @@
 # @param id int id of website
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $id = $ARGV[2];
 
@@ -43,7 +43,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_api_auto_cpanel_login($sid, $id);

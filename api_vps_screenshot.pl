@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_vps_screenshot - (c)2015 by detain@interserver.net for the MyAdmin API
 # This command returns a link to an animated screenshot of your VPS.   Only works
 # currently with KVM VPS servers
@@ -6,7 +6,7 @@
 # @param id int false to link to the image itself , otherwise a url
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $id = $ARGV[2];
 
@@ -41,7 +41,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_vps_screenshot($sid, $id);

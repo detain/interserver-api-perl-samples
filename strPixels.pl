@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # strPixels - (c)2015 by detain@interserver.net for the MyAdmin API
 # This function uses the array below to calculate the pixel width of a string of
 # characters. The widths of each character are based on a 12px Helvetica font. 
@@ -8,7 +8,7 @@
 # @param string string characters to measure size
 use SOAP::Lite;
 
-ההה$string = $ARGV[0];
+$string = $ARGV[0];
 
 $show_help = false; 
 foreach my $a(@ARGV) {

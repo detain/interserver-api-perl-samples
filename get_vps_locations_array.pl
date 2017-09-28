@@ -1,10 +1,10 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # get_vps_locations_array - (c)2015 by detain@interserver.net for the MyAdmin API
 # Use this function to get a list of the Locations available for ordering. The id
 # field in the return value is also needed to pass to the buy_vps functions.
 use SOAP::Lite;
 
-ההה
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

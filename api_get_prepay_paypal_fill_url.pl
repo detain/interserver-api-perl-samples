@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_get_prepay_paypal_fill_url - (c)2015 by detain@interserver.net for the MyAdmin API
 # Gets a PayPal URL to fill a PrePay.
 # @param sid string the *Session ID* you get from the [login](#login) call
@@ -7,7 +7,7 @@
 # @param amount float the amount to pay on the prepay.
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $module = $ARGV[2];
 $prepay_id = $ARGV[3];
@@ -45,7 +45,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_get_prepay_paypal_fill_url($sid, $module, $prepay_id, $amount);

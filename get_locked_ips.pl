@@ -1,10 +1,10 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # get_locked_ips - (c)2015 by detain@interserver.net for the MyAdmin API
 # This will return a list of all IP addresses used for fraud.   Its probably of no
 # real use to anyone, butI use it to block IP addresses and similar things. 
 use SOAP::Lite;
 
-ההה
+
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

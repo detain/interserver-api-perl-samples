@@ -1,11 +1,11 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_get_paypal_url - (c)2015 by detain@interserver.net for the MyAdmin API
 # Get the PayPal payment URL for an invoice on a given module.
 # @param module string the module the invoice is for. use [get_modules](#get_modules) to get a list of modules
 # @param invoice int the invoice id, or a comma separated list of invoice ids to get a payment url for.
 use SOAP::Lite;
 
-ההה$module = $ARGV[0];
+$module = $ARGV[0];
 $invoice = $ARGV[1];
 
 $show_help = false; 

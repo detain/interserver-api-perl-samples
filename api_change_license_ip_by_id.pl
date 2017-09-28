@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_change_license_ip_by_id - (c)2015 by detain@interserver.net for the MyAdmin API
 # Change the IP on an active license.
 # @param sid string the *Session ID* you get from the [login](#login) call
@@ -6,7 +6,7 @@
 # @param newip string the new ip address
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $id = $ARGV[2];
 $newip = $ARGV[3];
@@ -42,7 +42,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_change_license_ip_by_id($sid, $id, $newip);

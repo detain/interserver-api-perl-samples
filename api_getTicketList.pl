@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_getTicketList - (c)2015 by detain@interserver.net for the MyAdmin API
 # Returns a list of any tickets in the system.
 # @param sid string the *Session ID* you get from the [login](#login) call
@@ -7,7 +7,7 @@
 # @param status string null for no status limit or limit to a specific status
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $page = $ARGV[2];
 $limit = $ARGV[3];
@@ -45,7 +45,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_getTicketList($sid, $page, $limit, $status);

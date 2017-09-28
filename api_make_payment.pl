@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_make_payment - (c)2015 by detain@interserver.net for the MyAdmin API
 # Makes a payment for an invoice on a module.
 # @param sid string the *Session ID* you get from the [login](#login) call
@@ -6,7 +6,7 @@
 # @param invoice int the invoice id you want to make a payment on
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $module = $ARGV[2];
 $invoice = $ARGV[3];
@@ -42,7 +42,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_make_payment($sid, $module, $invoice);

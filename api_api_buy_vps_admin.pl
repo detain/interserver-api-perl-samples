@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_api_buy_vps_admin - (c)2015 by detain@interserver.net for the MyAdmin API
 # Purchase a VPS (admins only).   Returns a comma seperated list of invoices if
 # any need paid.  Same as client function but allows specifying which server to
@@ -17,7 +17,7 @@
 # @param server int 0 for auto assign otherwise the id of the vps master to put this on
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 $os = $ARGV[2];
 $slices = $ARGV[3];
@@ -73,7 +73,7 @@ $sid = $client
   -> api_login($username, $password)
   -> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Sessoion";
+  die "Got A Blank Session";
 } 
 $res = $client
   -> api_api_buy_vps_admin($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass, $server);

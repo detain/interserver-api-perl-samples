@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+a#!/usr/bin/perl -w
 # api_login - (c)2015 by detain@interserver.net for the MyAdmin API
 # This function creates a session in our system which you will need to pass to
 # most functions for authentication.
@@ -6,7 +6,7 @@
 # @param password string the password you use to login to the web account, or alternatively the API key.
 use SOAP::Lite;
 
-ההה$username = $ARGV[0];
+$username = $ARGV[0];
 $password = $ARGV[1];
 
 $show_help = false; 
