@@ -4,7 +4,6 @@ a#!/usr/bin/perl -w
 # field in the return value is also needed to pass to the buy_vps functions.
 use SOAP::Lite;
 
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

@@ -12,7 +12,6 @@ $password = $ARGV[1];
 $ip = $ARGV[2];
 $type = $ARGV[3];
 $coupon = $ARGV[4];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

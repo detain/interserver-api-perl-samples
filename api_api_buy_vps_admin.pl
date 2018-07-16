@@ -30,7 +30,6 @@ $hostname = $ARGV[9];
 $coupon = $ARGV[10];
 $rootpass = $ARGV[11];
 $server = $ARGV[12];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

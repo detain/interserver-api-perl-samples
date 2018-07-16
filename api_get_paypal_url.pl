@@ -7,7 +7,6 @@ use SOAP::Lite;
 
 $module = $ARGV[0];
 $invoice = $ARGV[1];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

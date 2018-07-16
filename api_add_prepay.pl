@@ -15,7 +15,6 @@ $password = $ARGV[1];
 $module = $ARGV[2];
 $amount = $ARGV[3];
 $automatic_use = $ARGV[4];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

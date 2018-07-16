@@ -18,7 +18,6 @@ $subject = $ARGV[4];
 $product = $ARGV[5];
 $body = $ARGV[6];
 $box_auth_value = $ARGV[7];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

@@ -18,7 +18,6 @@ $content = $ARGV[4];
 $type = $ARGV[5];
 $ttl = $ARGV[6];
 $prio = $ARGV[7];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

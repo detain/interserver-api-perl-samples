@@ -12,7 +12,6 @@ $password = $ARGV[1];
 $page = $ARGV[2];
 $limit = $ARGV[3];
 $status = $ARGV[4];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

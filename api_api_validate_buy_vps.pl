@@ -28,7 +28,6 @@ $version = $ARGV[8];
 $hostname = $ARGV[9];
 $coupon = $ARGV[10];
 $rootpass = $ARGV[11];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

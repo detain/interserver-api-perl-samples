@@ -3,7 +3,6 @@ a#!/usr/bin/perl -w
 # Get the currently available VPS templates for each server type.
 use SOAP::Lite;
 
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

@@ -3,7 +3,6 @@ a#!/usr/bin/perl -w
 # Get a license of the various license types.
 use SOAP::Lite;
 
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

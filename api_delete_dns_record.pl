@@ -10,7 +10,6 @@ $username = $ARGV[0];
 $password = $ARGV[1];
 $domain_id = $ARGV[2];
 $record_id = $ARGV[3];
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {

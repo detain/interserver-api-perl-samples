@@ -5,7 +5,6 @@ a#!/usr/bin/perl -w
 # functions.
 use SOAP::Lite;
 
-
 $show_help = false; 
 foreach my $a(@ARGV) {
   if ($a eq "--help") {
