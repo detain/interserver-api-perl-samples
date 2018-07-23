@@ -1,6 +1,6 @@
 a#!/usr/bin/perl -w
 # api_quickservers_get_client_invoices - (c)2015 by detain@interserver.net for the MyAdmin API
-# This Function Applies to the QuickServers services.
+# This Function Applies to the Rapid Deploy Servers services.
 # Gets a list of all the invoices.
 # @param sid string the *Session ID* you get from the [login](#login) call
 use SOAP::Lite;
@@ -20,7 +20,7 @@ if ($show_help == true) {
   die '
 api_quickservers_get_client_invoices
 
-This Function Applies to the QuickServers services.
+This Function Applies to the Rapid Deploy Servers services.
 # Gets a list of all the invoices.
 
 Correct Syntax: {$_SERVER["argv"][0]}  <username> <password>

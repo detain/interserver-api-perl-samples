@@ -1,6 +1,6 @@
 a#!/usr/bin/perl -w
 # api_quickservers_get_service - (c)2015 by detain@interserver.net for the MyAdmin API
-# This Function Applies to the QuickServers services.
+# This Function Applies to the Rapid Deploy Servers services.
 # Gets service info for the given ID in the given Module.   An example of this
 # would be in the "vps" module have order id
 # @param sid string the *Session ID* you get from the [login](#login) call
@@ -23,7 +23,7 @@ if ($show_help == true) {
   die '
 api_quickservers_get_service
 
-This Function Applies to the QuickServers services.
+This Function Applies to the Rapid Deploy Servers services.
 # Gets service info for the given ID in the given Module.   An example of this
 # would be in the "vps" module have order id
 
