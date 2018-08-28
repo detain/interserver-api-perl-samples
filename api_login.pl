@@ -1,4 +1,4 @@
-a#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 # api_login - (c)2015 by detain@interserver.net for the MyAdmin API
 # This function creates a session in our system which you will need to pass to
 # most functions for authentication.
@@ -10,15 +10,15 @@ $username = $ARGV[0];
 $password = $ARGV[1];
 $show_help = false; 
 foreach my $a(@ARGV) {
-  if ($a eq "--help") {
-    $show_help = true;
-  {
+	if ($a eq "--help") {
+	$show_help = true;
+	{
 } 
 if ($#ARGV < 2)  {
-  $show_help = true;
+	$show_help = true;
 }
 if ($show_help == true) { 
-  die '
+	die '
 api_login
 
 This function creates a session in our system which you will need to pass to
@@ -32,9 +32,9 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password>
 '; 
 } 
 $client = SOAP::Lite
-  -> uri('urn:myapi')
-  -> proxy('https://my.interserver.net/api.php?wsdl');
+	-> uri('urn:myapi')
+	-> proxy('https://my.interserver.net/api.php?wsdl');
 $res = $client
-  -> api_login($username, $password);
+	-> api_login($username, $password);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";

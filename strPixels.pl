@@ -1,4 +1,4 @@
-a#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 # strPixels - (c)2015 by detain@interserver.net for the MyAdmin API
 # This function uses the array below to calculate the pixel width of a string of
 # characters. The widths of each character are based on a 12px Helvetica font. 
@@ -11,15 +11,15 @@ use SOAP::Lite;
 $string = $ARGV[0];
 $show_help = false; 
 foreach my $a(@ARGV) {
-  if ($a eq "--help") {
-    $show_help = true;
-  {
+	if ($a eq "--help") {
+	$show_help = true;
+	{
 } 
 if ($#ARGV < 1)  {
-  $show_help = true;
+	$show_help = true;
 }
 if ($show_help == true) { 
-  die '
+	die '
 strPixels
 
 This function uses the array below to calculate the pixel width of a string of
@@ -35,9 +35,9 @@ Correct Syntax: {$_SERVER["argv"][0]}  <string>
 '; 
 } 
 $client = SOAP::Lite
-  -> uri('urn:myapi')
-  -> proxy('https://my.interserver.net/api.php?wsdl');
+	-> uri('urn:myapi')
+	-> proxy('https://my.interserver.net/api.php?wsdl');
 $res = $client
-  -> strPixels($string);
+	-> strPixels($string);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";

@@ -1,4 +1,4 @@
-a#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 # api_add_prepay - (c)2015 by detain@interserver.net for the MyAdmin API
 # Adds a PrePay into the system under the given module.    PrePays are a credit on
 # your account by prefilling  your account with funds.   These are stored in a
@@ -17,15 +17,15 @@ $amount = $ARGV[3];
 $automatic_use = $ARGV[4];
 $show_help = false; 
 foreach my $a(@ARGV) {
-  if ($a eq "--help") {
-    $show_help = true;
-  {
+	if ($a eq "--help") {
+	$show_help = true;
+	{
 } 
 if ($#ARGV < 5)  {
-  $show_help = true;
+	$show_help = true;
 }
 if ($show_help == true) { 
-  die '
+	die '
 api_add_prepay
 
 Adds a PrePay into the system under the given module.    PrePays are a credit on
@@ -44,15 +44,15 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <module> <amount> <
 '; 
 } 
 $client = SOAP::Lite
-  -> uri('urn:myapi')
-  -> proxy('https://my.interserver.net/api.php?wsdl');
+	-> uri('urn:myapi')
+	-> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login($username, $password)
-  -> result;
+	-> api_login($username, $password)
+	-> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Session";
+	die "Got A Blank Session";
 } 
 $res = $client
-  -> api_add_prepay($sid, $module, $amount, $automatic_use);
+	-> api_add_prepay($sid, $module, $amount, $automatic_use);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";

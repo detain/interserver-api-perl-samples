@@ -1,4 +1,4 @@
-a#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 # api_api_buy_vps - (c)2015 by detain@interserver.net for the MyAdmin API
 # Places a VPS order in our system. These are the same parameters as
 # api_validate_buy_vps..   Returns a comma seperated list of invoices if any need
@@ -30,15 +30,15 @@ $coupon = $ARGV[10];
 $rootpass = $ARGV[11];
 $show_help = false; 
 foreach my $a(@ARGV) {
-  if ($a eq "--help") {
-    $show_help = true;
-  {
+	if ($a eq "--help") {
+	$show_help = true;
+	{
 } 
 if ($#ARGV < 12)  {
-  $show_help = true;
+	$show_help = true;
 }
 if ($show_help == true) { 
-  die '
+	die '
 api_api_buy_vps
 
 Places a VPS order in our system. These are the same parameters as
@@ -63,15 +63,15 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <os> <slices> <plat
 '; 
 } 
 $client = SOAP::Lite
-  -> uri('urn:myapi')
-  -> proxy('https://my.interserver.net/api.php?wsdl');
+	-> uri('urn:myapi')
+	-> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login($username, $password)
-  -> result;
+	-> api_login($username, $password)
+	-> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Session";
+	die "Got A Blank Session";
 } 
 $res = $client
-  -> api_api_buy_vps($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass);
+	-> api_api_buy_vps($sid, $os, $slices, $platform, $controlpanel, $period, $location, $version, $hostname, $coupon, $rootpass);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";

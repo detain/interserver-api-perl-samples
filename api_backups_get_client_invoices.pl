@@ -1,4 +1,4 @@
-a#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 # api_backups_get_client_invoices - (c)2015 by detain@interserver.net for the MyAdmin API
 # This Function Applies to the Backup Services services.
 # Gets a list of all the invoices.
@@ -9,15 +9,15 @@ $username = $ARGV[0];
 $password = $ARGV[1];
 $show_help = false; 
 foreach my $a(@ARGV) {
-  if ($a eq "--help") {
-    $show_help = true;
-  {
+	if ($a eq "--help") {
+	$show_help = true;
+	{
 } 
 if ($#ARGV < 2)  {
-  $show_help = true;
+	$show_help = true;
 }
 if ($show_help == true) { 
-  die '
+	die '
 api_backups_get_client_invoices
 
 This Function Applies to the Backup Services services.
@@ -31,15 +31,15 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password>
 '; 
 } 
 $client = SOAP::Lite
-  -> uri('urn:myapi')
-  -> proxy('https://my.interserver.net/api.php?wsdl');
+	-> uri('urn:myapi')
+	-> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login($username, $password)
-  -> result;
+	-> api_login($username, $password)
+	-> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Session";
+	die "Got A Blank Session";
 } 
 $res = $client
-  -> api_backups_get_client_invoices($sid);
+	-> api_backups_get_client_invoices($sid);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";

@@ -1,4 +1,4 @@
-a#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 # api_get_prepay_remaining - (c)2015 by detain@interserver.net for the MyAdmin API
 # Get the PrePay amount available for a given module.
 # @param sid string the *Session ID* you get from the [login](#login) call
@@ -10,15 +10,15 @@ $password = $ARGV[1];
 $module = $ARGV[2];
 $show_help = false; 
 foreach my $a(@ARGV) {
-  if ($a eq "--help") {
-    $show_help = true;
-  {
+	if ($a eq "--help") {
+	$show_help = true;
+	{
 } 
 if ($#ARGV < 3)  {
-  $show_help = true;
+	$show_help = true;
 }
 if ($show_help == true) { 
-  die '
+	die '
 api_get_prepay_remaining
 
 Get the PrePay amount available for a given module.
@@ -32,15 +32,15 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <module>
 '; 
 } 
 $client = SOAP::Lite
-  -> uri('urn:myapi')
-  -> proxy('https://my.interserver.net/api.php?wsdl');
+	-> uri('urn:myapi')
+	-> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login($username, $password)
-  -> result;
+	-> api_login($username, $password)
+	-> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Session";
+	die "Got A Blank Session";
 } 
 $res = $client
-  -> api_get_prepay_remaining($sid, $module);
+	-> api_get_prepay_remaining($sid, $module);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";

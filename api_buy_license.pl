@@ -1,4 +1,4 @@
-a#!/usr/bin/perl -w
+#!/usr/bin/perl -w
 # api_buy_license - (c)2015 by detain@interserver.net for the MyAdmin API
 # Purchase a License.  Returns an invoice ID.
 # @param sid string the *Session ID* you get from the [login](#login) call
@@ -14,15 +14,15 @@ $type = $ARGV[3];
 $coupon = $ARGV[4];
 $show_help = false; 
 foreach my $a(@ARGV) {
-  if ($a eq "--help") {
-    $show_help = true;
-  {
+	if ($a eq "--help") {
+	$show_help = true;
+	{
 } 
 if ($#ARGV < 5)  {
-  $show_help = true;
+	$show_help = true;
 }
 if ($show_help == true) { 
-  die '
+	die '
 api_buy_license
 
 Purchase a License.  Returns an invoice ID.
@@ -38,15 +38,15 @@ Correct Syntax: {$_SERVER["argv"][0]}  <username> <password> <ip> <type> <coupon
 '; 
 } 
 $client = SOAP::Lite
-  -> uri('urn:myapi')
-  -> proxy('https://my.interserver.net/api.php?wsdl');
+	-> uri('urn:myapi')
+	-> proxy('https://my.interserver.net/api.php?wsdl');
 $sid = $client
-  -> api_login($username, $password)
-  -> result;
+	-> api_login($username, $password)
+	-> result;
 if (length($sid) == 0)  {
-  die "Got A Blank Session";
+	die "Got A Blank Session";
 } 
 $res = $client
-  -> api_buy_license($sid, $ip, $type, $coupon);
+	-> api_buy_license($sid, $ip, $type, $coupon);
 die $res->faultstring if ($res->fault);
 print "Response:\n",$res->result,"\n";
